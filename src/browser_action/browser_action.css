@@ -1,0 +1,41 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600&subset=latin,cyrillic);
+
+body {
+    font-family: 'Open Sans', 'Arial', sans-serif;
+    color: #333;
+}
+
+#l-llonliner {
+    padding: 10px;
+    height: 200px;
+    width: 300px;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-weight: 600;
+    margin: 0.5em 0;
+}
+
+.lloLineDivider {
+    width: 80%;
+    border-bottom: 1px solid #d9d9d9;
+    margin: 0.5em auto 0;
+}
+
+.lloBankExchange {
+
+}
+
+.lloBankExchange .lloBankExchange__exchangeRate {
+    display: inline-block;
+    width: 30%;
+}
+
+.lloBankExchange .lloBankExchange__bankName {
+    display: inline-block;
+    width: 40%;
+}
