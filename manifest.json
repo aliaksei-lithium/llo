@@ -3,7 +3,7 @@
   "version": "0.0.5",
   "manifest_version": 2,
   "description": "Created by Aliaksei blackredprince@gmail.com",
-  "homepage_url": "http://github.com",
+  "homepage_url": "https://github.com/daigotsu/llo",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
@@ -17,9 +17,13 @@
     "default_popup": "src/browser_action/browser_action.html"
   },
   "permissions": [
-    "contentSettings"
+    "contentSettings",
+    "storage"
   ],
-  "web_accessible_resources": ["src/inject/inject.js", "src/inject/logger.js"],
+  "background":{
+    "scripts":["src/browser_action/browser_action.js"]
+  },
+  "web_accessible_resources": ["src/inject/inject.js", "src/inject/21vek.js"],
   "content_scripts": [
     {
       "matches": [
