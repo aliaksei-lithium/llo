@@ -1,5 +1,4 @@
 var LLO = LLO || {};
-var LS_KEY = "LLO_CurrencyExchange";
 
 LLO.LLO_SITES = [
     {
@@ -20,21 +19,28 @@ LLO.LLO_SITES = [
     }];
 
 
-/*INITIALIZE LOGIC*/
+/*INITIALIZE*/
 
 (function (document) {
     var s = document.createElement('script'),
+        utilJs = document.createElement("script"),
         scriptSrcBySite = detectScriptSrc();
-    chrome.runtime.sendMessage({method: "getLocalStorage", key: LS_KEY}, function(response) {
-        localStorage.setItem(LS_KEY, response.data);
-        if (scriptSrcBySite && scriptSrcBySite.length > 0) {
-            s.src = chrome.extension.getURL(scriptSrcBySite);
-            s.onload = function () {
-                this.parentNode.removeChild(this);
-            };
-            (document.head || document.documentElement).appendChild(s);
-        }
+
+    chrome.runtime.sendMessage({method: "getUSDRate"}, function(response) {
+        debugger;
     });
+
+    if (scriptSrcBySite && scriptSrcBySite.length > 0) {
+        utilJs.src  = chrome.extension.getURL("src/util/lloUtil.js");
+        s.src = chrome.extension.getURL(scriptSrcBySite);
+        s.onload = function () {
+            this.parentNode.removeChild(this);
+        };
+        var head = (document.head || document.documentElement);
+        head.appendChild(utilJs);
+        head.appendChild(s);
+    }
+
 
 
 })(window.document);

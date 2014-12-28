@@ -1,8 +1,8 @@
 {
-  "name": "Long Live Onliner.by",
+  "name": "BYR currency changer. #LLO",
   "version": "0.0.5",
   "manifest_version": 2,
-  "description": "Created by Aliaksei blackredprince@gmail.com",
+  "description": "Convert BYR to USD on popular Belarus internet shops",
   "homepage_url": "https://github.com/daigotsu/llo",
   "icons": {
     "16": "icons/icon16.png",
@@ -13,17 +13,18 @@
 
   "browser_action": {
     "default_icon": "icons/icon19.png",
-    "default_title": "Onliner.by currency changer",
+    "default_title": "BYR currency changer",
     "default_popup": "src/browser_action/browser_action.html"
   },
   "permissions": [
     "contentSettings",
-    "storage"
+    "storage",
+    "http://www.nbrb.by/"
   ],
   "background":{
-    "scripts":["src/browser_action/browser_action.js"]
+    "scripts":["src/background.js"]
   },
-  "web_accessible_resources": ["src/inject/inject.js", "src/inject/21vek.js"],
+  "web_accessible_resources": ["src/inject/inject.js", "src/inject/21vek.js", "src/util/lloUtil.js"],
   "content_scripts": [
     {
       "matches": [
